@@ -25,23 +25,37 @@
                             <div class="text-center">
                                 <img src="{{ url('frontend/images/logo.png') }}" alt="" class="w-50 mb-4">
                             </div>
-                            <form action="">
+                            <form action="{{ route('login') }}" method="POST">
+                                @csrf
                                 <div class="form-group">
                                     <label for="email">Email address</label>
-                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                                    <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" aria-describedby="emailHelp" value="{{ old('email') }}">
+                                    @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" id="password">
+                                    <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" autocomplete="current-password">
+                                    @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" id="check-remember-me">
+                                    <input type="checkbox" class="form-check-input" id="check-remember-me" {{ old('remember') ? 'checked' : '' }}>
                                     <label for="check-remember-me" class="form-check-label">Remember Me</label>
                                 </div>
                                 <button type="submit" class="btn btn-login btn-block">Sign In</button>
+
+                                @if (Route::has('password.request'))
                                 <p class="text-center mt-4">
-                                    <a href="#">Saya lupa password</a>
+                                    <a href="{{ route('password.request') }}">Saya lupa password</a>
                                 </p>
+                                @endif
                             </form>
                         </div>
                     </div>

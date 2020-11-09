@@ -2,24 +2,32 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\TransactionSuccess;
 use App\Transaction;
 use App\TransactionDetail;
 use App\TravelPackage;
 
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
+use Midtrans\Config;
+use Midtrans\Snap;
 
 class CheckoutController extends Controller
 {
-    public function index(Request $request, $id) {
+    public function index(Request $request, $id)
+    {
         $item = Transaction::with(['details', 'travel_package', 'user'])->findOrFail($id);
         return view('pages.checkout', [
             'item' => $item
         ]);
     }
 
-    public function process(Request $request, $id) {
+    public function process(Request $request, $id)
+    {
         $travel_package = TravelPackage::findOrFail($id);
 
         $transaction = Transaction::create([
@@ -41,7 +49,8 @@ class CheckoutController extends Controller
         return redirect()->route('checkout', $transaction->id);
     }
 
-    public function remove(Request $request, $detail_id) {
+    public function remove(Request $request, $detail_id)
+    {
         $item = TransactionDetail::findOrFail($detail_id);
         $transaction = Transaction::with(['details', 'travel_package'])->findOrFail($item->transactions_id);
 
@@ -56,7 +65,8 @@ class CheckoutController extends Controller
         return redirect()->route('checkout', $item->transactions_id);
     }
 
-    public function create(Request $request, $id) {
+    public function create(Request $request, $id)
+    {
         $request->validate([
             'username' => 'required|string|exists:users,username',
             'is_visa' => 'required|boolean',
@@ -79,11 +89,41 @@ class CheckoutController extends Controller
         return redirect()->route('checkout', $id);
     }
 
-    public function success(Request $request, $id) {
-        $transaction = Transaction::findOrFail($id);
+    public function success(Request $request, $id)
+    {
+        $transaction = Transaction::with(['details', 'travel_package.galleries', 'user'])->findOrFail($id);
         $transaction->transaction_status = 'PENDING';
-
         $transaction->save();
-        return view('pages.success');
+
+        Config::$serverKey = config('midtrans.serverKey');
+        Config::$isProduction = config('midtrans.isProduction');
+        Config::$isSanitized = config('midtrans.isSanitized');
+        Config::$is3ds = config('midtrans.is3ds');
+
+        $midtransParams = [
+            'transaction_details' => [
+                'order_id' => 'MIDTRANS-' . $transaction->id,
+                'gross_amount' => (int) $transaction->transaction_total
+            ],
+            'customer_details' => [
+                'first_name' => $transaction->user->name,
+                'email' => $transaction->user->email
+            ],
+            'enabled_payments' => ['gopay'],
+            'vtweb' => [] //snap-redirect kalau kosong
+        ];
+
+        try {
+            $paymentUrl = Snap::createTransaction($midtransParams)->redirect->url;
+
+            header('Location: ' . $paymentUrl);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }
+
+
+        // Mail::to($transaction->user)->send(new TransactionSuccess($transaction));
+
+        // return view('pages.success');
     }
 }
