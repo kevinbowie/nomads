@@ -1,9 +1,8 @@
 body {
     background-color: #fff;
-    font-family: 'Assistant', sans-serif;
-    color: #071C4D;
+    font-family: "Assistant", sans-serif;
+    color: #071c4d;
 }
-
 
 //navbar
 .navbar-brand {
@@ -15,11 +14,11 @@ body {
 .navbar-light {
     .navbar-nav {
         .nav-link {
-            color: #071C4D;
+            color: #071c4d;
 
             &.active {
                 font-weight: bold;
-                color: #071C4D !important;
+                color: #071c4d !important;
             }
         }
     }
@@ -29,35 +28,35 @@ body {
     margin-top: -10px !important;
     margin-bottom: -8px !important;
     margin-right: -18px !important;
-    
+
     height: 70px;
     border-radius: 0;
 }
 
 .btn-login {
-    background-color: #071C4D;
+    background-color: #071c4d;
     color: #fff;
 
     &:hover {
-        background-color: #1E3771;
+        background-color: #1e3771;
         color: #fff;
     }
 }
-
 
 //header
 header {
     padding: 180px 0 165px;
     margin-top: -70px;
-    background-image: url('../images/header.jpg');
+    background-image: url("../images/header.jpg");
     background-size: cover;
 
-    h1, p {
+    h1,
+    p {
         color: #fff;
     }
 
     h1 {
-        font-family: 'Playfair Display', serif;
+        font-family: "Playfair Display", serif;
         font-weight: bold;
         font-size: 50px;
     }
@@ -67,16 +66,15 @@ header {
     }
 
     .btn-get-started {
-        background-color: #FF9E53;
+        background-color: #ff9e53;
         color: #fff;
 
         &:hover {
-            background-color: #FFAA69;
+            background-color: #ffaa69;
             color: #fff;
         }
     }
 }
-
 
 //statistik
 .section-stats {
@@ -100,7 +98,6 @@ header {
     }
 }
 
-
 //popular
 .section-popular {
     min-height: 540px;
@@ -111,12 +108,13 @@ header {
     .section-popular-heading {
         margin-top: 150px;
 
-        h2, p {
+        h2,
+        p {
             color: #fff;
         }
 
         h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: "Playfair Display", serif;
             font-weight: bold;
             font-size: 40px;
         }
@@ -126,7 +124,6 @@ header {
         }
     }
 }
-
 
 //popular content
 .section-popular-content {
@@ -152,18 +149,17 @@ header {
 
         .travel-button {
             .btn-travel-details {
-                background-color: #FF9E53;
+                background-color: #ff9e53;
                 color: #fff;
 
                 &:hover {
-                    background-color: #FFAE6F;
+                    background-color: #ffae6f;
                     color: #fff;
                 }
             }
         }
     }
 }
-
 
 //networks
 .section-networks {
@@ -173,7 +169,7 @@ header {
     padding-bottom: 50px;
 
     h2 {
-        font-family: 'Playfair Display', serif;
+        font-family: "Playfair Display", serif;
         font-weight: bold;
         font-size: 40px;
     }
@@ -187,7 +183,6 @@ header {
     }
 }
 
-
 //testimonial
 .section-testimonial-heading {
     background: linear-gradient(#fff 0%, #f7f9ff 100%);
@@ -195,7 +190,7 @@ header {
     min-height: 506px;
 
     h2 {
-        font-family: 'Playfair Display', serif;
+        font-family: "Playfair Display", serif;
         font-weight: bold;
         font-size: 40px;
     }
@@ -242,11 +237,11 @@ header {
     }
 
     .btn-get-started {
-        background-color: #FF9E53;
+        background-color: #ff9e53;
         color: #fff;
 
         &:hover {
-            background-color: #FFAA69;
+            background-color: #ffaa69;
             color: #fff;
         }
     }
@@ -262,14 +257,12 @@ header {
     }
 }
 
-
 //footer
 .section-footer {
     a {
         color: #071c4d;
     }
 }
-
 
 //detail
 .section-details-header {
@@ -291,7 +284,7 @@ header {
     .breadcrumb-item {
         &.active {
             font-weight: bold;
-            color: #071C4D;
+            color: #071c4d;
         }
     }
 
@@ -309,7 +302,7 @@ header {
 
         p {
             font-size: 18px;
-            color: #B1B1B1;
+            color: #b1b1b1;
         }
 
         .trip-informations {
@@ -326,12 +319,12 @@ header {
             }
 
             .text-blue {
-                color: #071C4D;
+                color: #071c4d;
                 font-weight: bold;
             }
-    
+
             .text-orange {
-                color: #FF9E53;
+                color: #ff9e53;
                 font-weight: bold;
             }
         }
@@ -346,7 +339,7 @@ header {
             .bank-item {
                 h3 {
                     font-size: 18px;
-                    color: #071C4D;
+                    color: #071c4d;
                     margin-bottom: 0;
                 }
 
@@ -361,7 +354,7 @@ header {
 
                     p {
                         font-size: 16px;
-                        color: #071C4D;
+                        color: #071c4d;
                         font-weight: normal;
                     }
                 }
@@ -408,7 +401,7 @@ header {
 
         h3 {
             font-size: 18px;
-            color: #071C4D;
+            color: #071c4d;
             margin-bottom: 0;
         }
 
@@ -457,12 +450,12 @@ header {
         margin-top: -16px;
 
         .btn-join-now {
-            background-color: #FF9E53;
+            background-color: #ff9e53;
             color: #fff;
             border-radius: 0;
 
             &:hover {
-                background-color: #FFAE6F;
+                background-color: #ffae6f;
                 color: #fff;
             }
         }
@@ -476,7 +469,7 @@ header {
     h1 {
         font-weight: 600;
         font-size: 26px;
-        color: #071C4D;
+        color: #071c4d;
     }
 
     p {
@@ -493,6 +486,48 @@ header {
         &:hover {
             background-color: #1a4c9c;
             color: #fff;
+        }
+    }
+}
+
+.login-container {
+    @media (min-width: 992px) {
+        background: linear-gradient(90deg, #ffffff 60%, #e4e6eb 40%);
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+.page-login {
+    height: 100vh;
+
+    .btn-login {
+        background-color: #ff9e53;
+        color: white;
+
+        &:hover {
+            color: white;
+        }
+    }
+
+    .section-left {
+        h1 {
+            font-family: "Playfair Display";
+            font-weight: bold;
+            font-size: 50px;
+            text-align: left;
+            color: #071c4d;
+        }
+    }
+
+    .section-right {
+        a {
+            font-family: Assistant;
+            font-weight: 300;
+            text-decoration: underline;
+            font-size: 16px;
+            text-align: center;
+            color: #bfbfbf;
         }
     }
 }

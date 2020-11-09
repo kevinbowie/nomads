@@ -1,0 +1,64 @@
+<mjml>
+  <mj-body background-color="#e4e6eb" font-size="13px">
+		<mj-section background-color="white" vertical-align="top" padding-bottom="0px" padding-top="0px" border-bottom="1px dashed #eee">
+    	<mj-column width="100%" vertical-align="top">
+      	<mj-image src="images/logo_nomads.png" alt="" align="center" border="none" width="180px" padding-left="0px" padding-right="0px" padding-bottom="25px" padding-top="30px"/>
+      </mj-column>
+    </mj-section>  	
+    
+		<mj-section background-color="white" vertical-align="top" padding-bottom="0px" padding-top="0px">
+    	<mj-column width="100%" vertical-align="top">
+      	<mj-text align="center" color="#071c4d" font-size="30px" font-weight="bold" font-family="Playfair Display, Times New Roman, serif" padding="30px 25px">
+        	Don't Forget Your E-Ticket!
+        </mj-text>
+      </mj-column>
+    </mj-section>  	
+    
+		<mj-section background-color="white" padding-bottom="0px" padding-top="0px">
+    	<mj-column width="100%" vertical-align="top">
+      	<mj-image src="images/nusa_penida.png" alt="" align="center" border="none" width="550px" padding="0px"/>
+      </mj-column>
+    </mj-section> 
+     
+		<mj-section background-color="white" padding="20px 0px">
+    	<mj-column width="100%" vertical-align="middle" border-bottom="1px dashed #eee" padding-bottom="30px">
+      	<mj-text align="left" color="#071c4d" font-size="18px" font-family="Assistant, Helvetica, Arial, sans-serif" padding="0px 25px" line-height="20px">
+          Hi, Angga Risky
+         	<br>
+          </br>
+          Tiket digital kamu sudah berhasil dicetak.
+          <br></br>
+          Booking ID <strong>#220B1986</strong>
+        </mj-text>
+        
+      	<mj-table color="#071c4d" line-height="28px" font-size="18px" font-family="Assistant, Helvetica, Arial, sans-serif" padding="0px 25px">
+          <tr>
+          	<td colspan="3">Members</td>
+          </tr>
+          <tr>
+          	<td><strong>Angga Risky</strong></td>
+            <td style="text-align:right;">Singapore, SG</td>
+          </tr>
+          <tr>
+          	<td><strong>Galih Pratama</strong></td>
+						<td style="text-align:right;">Indonesia, ID</td>
+          </tr>
+        </mj-table>
+        
+      	<mj-table color="#071c4d" line-height="28px" font-size="18px" font-family="Assistant, Helvetica, Arial, sans-serif" padding="0px 25px">
+          <tr>
+          	<td colspan="3">Travel Details</td>
+          </tr>
+          <tr>
+          	<td><strong>Departure</strong></td>
+            <td style="text-align:right;">Nusa Penida</td>
+          </tr>
+          <tr>
+          	<td><strong>Date and Time</strong></td>
+						<td style="text-align:right;">Thu, 20 Jan, 2019</td>
+          </tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>  	
+  </mj-body>
+</mjml>
