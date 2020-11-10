@@ -19,21 +19,21 @@
                     </nav>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-lg-8 pl-lg-0">
                     <div class="card card-details">
 
                         @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                         @endif
-                        
+
                         <h1>Who is Going ?</h1>
                         <p>Trip to {{ $item->travel_package->title }}, {{ $item->travel_package->location }}</p>
                         <div class="attended">
@@ -49,24 +49,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($item->details as $detail)  
-                                        <tr>
-                                            <td><img src="https://ui-avatars.com/api/?name={{ $detail->username }}" class="rounded-circle" height="60"></td>
-                                            <td class="align-middle">{{ $detail->username }}</td>
-                                            <td class="align-middle">{{ $detail->nationality }}</td>
-                                            <td class="align-middle">{{ $detail->is_visa ? '30 Days' : 'N/A' }}</td>
-                                            <td class="align-middle">
-                                                    {{ \Carbon\Carbon::createFromDate($detail->doe_passport) > \Carbon\Carbon::now() ? 'Active' : 'Inactive' }}
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="{{ route('checkout-remove', $detail->id) }}">
+                                    @forelse ($item->details as $detail)
+                                    <tr>
+                                        <td><img src="https://ui-avatars.com/api/?name={{ $detail->username }}" class="rounded-circle" height="60"></td>
+                                        <td class="align-middle">{{ $detail->username }}</td>
+                                        <td class="align-middle">{{ $detail->nationality }}</td>
+                                        <td class="align-middle">{{ $detail->is_visa ? '30 Days' : 'N/A' }}</td>
+                                        <td class="align-middle">
+                                            {{ \Carbon\Carbon::createFromDate($detail->doe_passport) > \Carbon\Carbon::now() ? 'Active' : 'Inactive' }}
+                                        </td>
+                                        <td class="align-middle">
+                                            <a href="{{ route('checkout-remove', $detail->id) }}">
                                                 <img src="{{ url('frontend/images/ic_remove.png') }}" alt=""></a>
-                                            </td>
-                                        </tr>
+                                        </td>
+                                    </tr>
                                     @empty
-                                        <tr>
-                                            <td colspan="6" class="text-center">No visitor</td>
-                                        </tr>
+                                    <tr>
+                                        <td colspan="6" class="text-center">No visitor</td>
+                                    </tr>
                                     @endforelse
                                 </tbody>
                             </table>
@@ -135,7 +135,12 @@
                         </table>
                         <hr>
                         <h2>Payment Instructions</h2>
-                        <p class="payment-instructions">Please complete your payment before to continue the wonderful trip</p>
+                        <p class="payment-instructions">
+                            You will be redirected to another page to pay using GO-PAY
+                        </p>
+                        <img src="{{ url('frontend/images/gopay.png') }}" alt="" class="w-50">
+                        <!-- 
+                        <p class="payment-instructions">Please complete your payment before to continue the wonderful trip</p> 
                         <div class="bank">
                             <div class="bank-item pb-3">
                                 <img src="{{ url('frontend/images/ic_bank.png') }}" class="bank-image">
@@ -159,10 +164,10 @@
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="join-container">
-                        <a href="{{ route('checkout-success', $item->id) }}" class="btn btn-block btn-join-now mt-3 py-2">I Have Made Payment</a>
+                        <a href="{{ route('checkout-success', $item->id) }}" class="btn btn-block btn-join-now mt-3 py-2">Process Payment</a>
                     </div>
                     <div class="text-center mt-3">
                         <a href="{{ route('detail', $item->travel_package->slug) }}" class="text-muted"><u>Cancel Booking</u></a>
